@@ -45,6 +45,25 @@ A release is a git tag `vX.Y.Z` that matches `version` in `package.json`. The ta
 package to npm with provenance. Pre-1.0, a minor bump may contain breaking changes; each
 release notes them.
 
+### Releasing
+
+The release workflow needs the repository secret `NPM_TOKEN`: a npm granular access token with
+read and write access to packages, and the "bypass two-factor authentication" option ticked.
+Set it with the GitHub CLI and paste the token at the prompt, never on the command line:
+
+```sh
+gh secret set NPM_TOKEN -R picusbase/picusbase-sdk-ts
+```
+
+Then bump `version` in `package.json`, merge it, and tag the merge commit:
+
+```sh
+git tag -a vX.Y.Z -m "vX.Y.Z: <summary>" && git push origin vX.Y.Z
+```
+
+The `Release` workflow checks that the tag matches `package.json`, then publishes. If it fails
+at the publish step, the token is missing, expired or lacks write access.
+
 ## License
 
 MIT. See [LICENSE](LICENSE).
