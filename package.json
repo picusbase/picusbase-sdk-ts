@@ -1,0 +1,39 @@
+{
+  "name": "picusbase-sdk",
+  "version": "0.1.0",
+  "description": "TypeScript SDK for the PicusBase platform: sign-in, records, storage, functions",
+  "license": "MIT",
+  "type": "module",
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "default": "./dist/index.js"
+    }
+  },
+  "files": [
+    "dist"
+  ],
+  "sideEffects": false,
+  "engines": {
+    "node": ">=20"
+  },
+  "keywords": [
+    "picusbase",
+    "sdk",
+    "baas"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/picusbase/picusbase-sdk-ts.git"
+  },
+  "homepage": "https://github.com/picusbase/picusbase-sdk-ts",
+  "scripts": {
+    "build": "tsc",
+    "typecheck": "tsc --noEmit"
+  },
+  "devDependencies": {
+    "typescript": "~5.6.3"
+  }
+}
